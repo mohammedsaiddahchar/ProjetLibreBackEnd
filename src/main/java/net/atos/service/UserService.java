@@ -29,7 +29,7 @@ public class UserService {
         return userRepo.findAll();
     }
 
-    public void deleteById(Long id) {
+    public void deleteUserById(Long id) {
         userRepo.deleteUserById(id);
     }
 

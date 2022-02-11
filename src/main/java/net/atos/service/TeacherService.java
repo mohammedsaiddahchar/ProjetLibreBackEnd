@@ -29,7 +29,7 @@ public class TeacherService {
         return teacherRepo.findAll();
     }
 
-    public void deleteById(Long id) {
+    public void deleteTeacherById(Long id) {
         teacherRepo.deleteTeacherById(id);
     }
 }

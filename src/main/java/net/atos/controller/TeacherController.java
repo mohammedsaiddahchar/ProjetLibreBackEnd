@@ -8,6 +8,7 @@ import net.atos.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,9 +37,10 @@ public class TeacherController {
         return new ResponseEntity<>(updatedTeacher, HttpStatus.OK);
     }
 
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteTeacherById(@PathVariable Long id) {
-        teacherService.deleteById(id);
+        teacherService.deleteTeacherById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -50,12 +52,6 @@ public class TeacherController {
 
     @GetMapping("/all")
     public ResponseEntity<List<Teacher>> findAllTeachers() {
-        Teacher teacher = new FullTimeTeacher();
-        teacher.setId(1L);
-        teacher.setFirstName("Hassan");
-        teacher.setLastName("Badir");
-        teacher.setMailAddress("hbadir@gmail.com");
-        teacherService.addTeacher(teacher);
         List<Teacher> listTeacher = teacherService.findAllTeachers();
         return new ResponseEntity<>(listTeacher, HttpStatus.OK);
     }

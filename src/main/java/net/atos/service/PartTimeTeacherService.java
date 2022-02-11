@@ -31,7 +31,7 @@ public class PartTimeTeacherService {
         return partTimeTeacherRepo.findAll();
     }
 
-    public void deleteById(Long id) {
+    public void deletePartTimeTeacherById(Long id) {
         partTimeTeacherRepo.deletePartTimeTeacherById(id);
     }
 }

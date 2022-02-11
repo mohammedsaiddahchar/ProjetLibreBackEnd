@@ -5,6 +5,7 @@ import net.atos.service.PartTimeTeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,9 +34,10 @@ public class PartTimeTeacherController {
         return new ResponseEntity<>(updatedPartTimeTeacher, HttpStatus.OK);
     }
 
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deletePartTimeTeacherById(@PathVariable Long id) {
-        partTimeTeacherService.deleteById(id);
+        partTimeTeacherService.deletePartTimeTeacherById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
