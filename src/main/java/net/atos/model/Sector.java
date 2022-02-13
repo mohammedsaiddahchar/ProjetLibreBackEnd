@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Module {
+public class Sector {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
@@ -15,14 +15,12 @@ public class Module {
     @Column(name = "designation", nullable = false)
     String designation;
 
-    @Column(name = "level", nullable = false)
-    Integer level;
-
+    @Column(name = "module")
     @ManyToMany()
-    List<Subject> listSubject;
+    List<Module> listModule;
 
-    @ManyToOne()
-    FullTimeTeacher moduleManager;
+    @OneToOne()
+    FullTimeTeacher sectorManager;
 
     public Long getId() {
         return id;
@@ -48,27 +46,19 @@ public class Module {
         this.designation = designation;
     }
 
-    public Integer getLevel() {
-        return level;
+    public List<Module> getListModule() {
+        return listModule;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void setListModule(List<Module> listModule) {
+        this.listModule = listModule;
     }
 
-    public List<Subject> getListSubject() {
-        return listSubject;
+    public FullTimeTeacher getSectorManager() {
+        return sectorManager;
     }
 
-    public void setListSubject(List<Subject> listSubject) {
-        this.listSubject = listSubject;
-    }
-
-    public FullTimeTeacher getModuleManager() {
-        return moduleManager;
-    }
-
-    public void setModuleManager(FullTimeTeacher moduleManager) {
-        this.moduleManager = moduleManager;
+    public void setSectorManager(FullTimeTeacher sectorManager) {
+        this.sectorManager = sectorManager;
     }
 }

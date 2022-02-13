@@ -14,7 +14,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/subject")
+@RequestMapping("/api/module")
 public class ModuleController {
     @Autowired
     ModuleService moduleService;

@@ -36,7 +36,7 @@ public class SubjectController {
 
     @Transactional
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteFullTimeTeacherById(@PathVariable Long id) {
+    public ResponseEntity<?> deleteSubjectById(@PathVariable Long id) {
         subjectService.deleteSubjectById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
