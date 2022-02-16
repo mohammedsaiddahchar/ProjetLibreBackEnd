@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface SectorRepository extends JpaRepository<Sector, Long> {
     Optional<Sector> findSectorById(Long id);
 
+    Optional<Sector> findSectorByCode(String code);
     void deleteSectorById(Long id);
 }

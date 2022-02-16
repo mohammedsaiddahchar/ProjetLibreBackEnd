@@ -47,6 +47,7 @@ public class JpaConfiguration {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
+        properties.put("hibernate.event.merge.entity_copy_observer", "allow");
         return properties;
     }
 }

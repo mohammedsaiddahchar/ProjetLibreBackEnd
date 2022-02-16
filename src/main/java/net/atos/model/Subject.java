@@ -11,7 +11,7 @@ public class Subject {
     @Column(name = "designation")
     String designation;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     Teacher teacher;
 
     public Long getId() {

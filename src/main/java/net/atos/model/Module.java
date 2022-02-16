@@ -18,10 +18,10 @@ public class Module {
     @Column(name = "level", nullable = false)
     Integer level;
 
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     List<Subject> listSubject;
 
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     FullTimeTeacher moduleManager;
 
     public Long getId() {

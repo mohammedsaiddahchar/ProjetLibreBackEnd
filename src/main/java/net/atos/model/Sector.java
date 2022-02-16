@@ -16,10 +16,10 @@ public class Sector {
     String designation;
 
     @Column(name = "module")
-    @ManyToMany()
+    @ManyToMany(cascade = CascadeType.ALL)
     List<Module> listModule;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     FullTimeTeacher sectorManager;
 
     public Long getId() {

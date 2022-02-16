@@ -26,6 +26,10 @@ public class SectorService {
         return sectorRepo.findSectorById(id).orElseThrow(() -> new SectorNotFoundException("Sector by id : " + id + " was not found."));
     }
 
+    public Sector findSectorByCode(String code) {
+        return sectorRepo.findSectorByCode(code).orElseThrow(() -> new SectorNotFoundException("Sector by id : " + code + " was not found."));
+    }
+
     public List<Sector> findAllSectors() {
         return sectorRepo.findAll();
     }
